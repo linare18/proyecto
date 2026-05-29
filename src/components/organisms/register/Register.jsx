@@ -66,18 +66,17 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
-      {/* Reducción de max-w y padding para evitar el scroll vertical */}
-      <div className="w-full max-w-4xl bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden transition-all">
+    <div className="min-h-screen flex items-center justify-center bg-brand-bg p-4">
+      <div className="w-full max-w-4xl bg-neutral-900 rounded-3xl shadow-xl border border-neutral-800 overflow-hidden transition-all">
         <div className="p-6 md:p-10">
 
           <header className="mb-6 text-center">
-            <h2 className="text-3xl font-bold text-gray-900 tracking-tight">Crear cuenta</h2>
-            <p className="text-gray-500 text-sm mt-1">Únete a nuestra comunidad hoy mismo</p>
+            <h2 className="text-3xl font-serif font-bold text-neutral-100 tracking-tight">Crear Cuenta</h2>
+            <p className="text-neutral-400 text-sm mt-1">Únete a nuestra comunidad hoy mismo</p>
           </header>
 
           {error && (
-            <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+            <div className="mb-4 p-3 bg-rose-950/40 border border-brand-rose text-brand-rose text-sm rounded-xl">
               {error}
             </div>
           )}
@@ -88,24 +87,24 @@ const Register = () => {
               {/* Columna Izquierda: Información Personal */}
               <div className="space-y-4">
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1">Nombre completo</label>
+                  <label className="block text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-1">Nombre completo</label>
                   <input
                     type="text"
                     name="name"
                     required
-                    className="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 outline-none transition-all placeholder:text-gray-400"
+                    className="w-full px-4 py-2.5 bg-neutral-950 rounded-xl border border-neutral-800 text-neutral-100 focus:ring-2 focus:ring-brand-emerald/10 focus:border-brand-emerald outline-none transition-all placeholder:text-neutral-600"
                     placeholder="Ej. Juan Pérez"
                     onChange={handleChange}
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1">Correo electrónico</label>
+                  <label className="block text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-1">Correo electrónico</label>
                   <input
                     type="email"
                     name="email"
                     required
-                    className="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 outline-none transition-all placeholder:text-gray-400"
+                    className="w-full px-4 py-2.5 bg-neutral-950 rounded-xl border border-neutral-800 text-neutral-100 focus:ring-2 focus:ring-brand-emerald/10 focus:border-brand-emerald outline-none transition-all placeholder:text-neutral-600"
                     placeholder="correo@ejemplo.com"
                     onChange={handleChange}
                   />
@@ -113,21 +112,21 @@ const Register = () => {
 
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1">Celular</label>
+                    <label className="block text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-1">Celular</label>
                     <input
                       type="tel"
                       name="cellphone"
-                      className="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 outline-none transition-all"
+                      className="w-full px-4 py-2.5 bg-neutral-950 rounded-xl border border-neutral-800 text-neutral-100 focus:ring-2 focus:ring-brand-emerald/10 focus:border-brand-emerald outline-none transition-all placeholder:text-neutral-600"
                       placeholder="+57 300..."
                       onChange={handleChange}
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1">Dirección</label>
+                    <label className="block text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-1">Dirección</label>
                     <input
                       type="text"
                       name="address"
-                      className="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 outline-none transition-all"
+                      className="w-full px-4 py-2.5 bg-neutral-950 rounded-xl border border-neutral-800 text-neutral-100 focus:ring-2 focus:ring-brand-emerald/10 focus:border-brand-emerald outline-none transition-all placeholder:text-neutral-600"
                       placeholder="Calle 123..."
                       onChange={handleChange}
                     />
@@ -138,25 +137,25 @@ const Register = () => {
               {/* Columna Derecha: Seguridad */}
               <div className="space-y-4">
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1">Contraseña</label>
+                  <label className="block text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-1">Contraseña</label>
                   <input
                     type="password"
                     name="password"
                     required
-                    className="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 outline-none transition-all"
+                    className="w-full px-4 py-2.5 bg-neutral-950 rounded-xl border border-neutral-800 text-neutral-100 focus:ring-2 focus:ring-brand-emerald/10 focus:border-brand-emerald outline-none transition-all placeholder:text-neutral-600"
                     placeholder="••••••••"
                     onChange={handleChange}
                   />
-                  <p className="text-[10px] text-gray-400 mt-1 italic">Mínimo 8 caracteres (letras y números).</p>
+                  <p className="text-[10px] text-neutral-500 mt-1 italic">Mínimo 8 caracteres (letras y números).</p>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1">Confirmar contraseña</label>
+                  <label className="block text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-1">Confirmar contraseña</label>
                   <input
                     type="password"
                     name="confirmPassword"
                     required
-                    className="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 outline-none transition-all"
+                    className="w-full px-4 py-2.5 bg-neutral-950 rounded-xl border border-neutral-800 text-neutral-100 focus:ring-2 focus:ring-brand-emerald/10 focus:border-brand-emerald outline-none transition-all placeholder:text-neutral-600"
                     placeholder="••••••••"
                     onChange={handleChange}
                   />
@@ -164,17 +163,17 @@ const Register = () => {
               </div>
             </div>
 
-            {/* Acción y Footer más compactos */}
+            {/* Acción y Footer */}
             <div className="pt-4 space-y-4">
               <button
                 type="submit"
-                className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-lg shadow-md hover:shadow-lg transition-all active:scale-[0.98] text-base"
+                className="w-full bg-gradient-to-r from-brand-emerald to-teal-500 text-neutral-950 font-bold py-3 rounded-xl shadow-md hover:brightness-110 transition-all active:scale-[0.98] text-base cursor-pointer"
               >
                 Registrarse
               </button>
 
-              <p className="text-center text-sm text-gray-500">
-                ¿Ya tienes una cuenta? <Link to="/login" className="text-indigo-600 font-semibold hover:underline">Inicia sesión</Link>
+              <p className="text-center text-sm text-neutral-400">
+                ¿Ya tienes una cuenta? <Link to="/login" className="text-brand-emerald font-semibold hover:underline">Inicia sesión</Link>
               </p>
             </div>
           </form>

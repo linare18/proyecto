@@ -42,21 +42,20 @@ const Login = () => {
     }
   };
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-50 p-6">
-      <div className="w-full max-w-md bg-white p-10 rounded-3xl shadow-sm border border-gray-100">
+    <div className="flex items-center justify-center min-h-screen bg-brand-bg p-6">
+      <div className="w-full max-w-md bg-neutral-900 p-10 rounded-3xl shadow-lg border border-neutral-800">
 
         {/* Header con Icono */}
         <div className="flex flex-col items-center mb-12">
           <div className="mb-4">
-            {/* Icono similar al de la imagen */}
-            <img src={smile} alt="Smile Icon" className="w-[64px] h-[64px]" />
+            <img src={smile} alt="Smile Icon" className="w-[64px] h-[64px] filter invert opacity-80" />
           </div>
-          <h1 className="text-4xl font-bold text-slate-800 mb-2">Welcome!</h1>
-          <p className="text-slate-400 text-lg">Sign in to your account</p>
+          <h1 className="text-4xl font-serif font-bold text-neutral-100 mb-2">¡Bienvenido!</h1>
+          <p className="text-neutral-400 text-lg">Inicia sesión en tu cuenta</p>
         </div>
 
         {error && (
-          <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+          <div className="mb-4 p-3 bg-rose-950/40 border border-brand-rose text-brand-rose text-sm rounded-xl">
             {error}
           </div>
         )}
@@ -65,19 +64,19 @@ const Login = () => {
 
           {/* Input de Email */}
           <div className="relative group">
-            <label className="block text-slate-400 text-lg mb-1 group-focus-within:text-blue-500 transition-colors">
-              Email
+            <label className="block text-neutral-400 text-lg mb-1 group-focus-within:text-brand-emerald transition-colors">
+              Correo Electrónico
             </label>
-            <div className="relative border-b border-gray-200 group-focus-within:border-blue-500 transition-all">
+            <div className="relative border-b border-neutral-800 group-focus-within:border-brand-emerald transition-all">
               <input
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full py-2 bg-transparent focus:outline-none text-slate-700 pr-10"
+                className="w-full py-2 bg-transparent focus:outline-none text-neutral-100 pr-10"
                 required
               />
-              <span className="absolute right-0 top-2 text-slate-300">
+              <span className="absolute right-0 top-2 text-neutral-500 group-focus-within:text-brand-emerald transition-colors">
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
                 </svg>
@@ -87,19 +86,19 @@ const Login = () => {
 
           {/* Input de Password */}
           <div className="relative group">
-            <label className="block text-slate-400 text-lg mb-1 group-focus-within:text-blue-500 transition-colors">
-              Password
+            <label className="block text-neutral-400 text-lg mb-1 group-focus-within:text-brand-emerald transition-colors">
+              Contraseña
             </label>
-            <div className="relative border-b border-gray-200 group-focus-within:border-blue-500 transition-all">
+            <div className="relative border-b border-neutral-800 group-focus-within:border-brand-emerald transition-all">
               <input
                 type="password"
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
-                className="w-full py-2 bg-transparent focus:outline-none text-slate-700 pr-10"
+                className="w-full py-2 bg-transparent focus:outline-none text-neutral-100 pr-10"
                 required
               />
-              <span className="absolute right-0 top-2 text-slate-300 cursor-pointer hover:text-blue-500 transition-colors">
+              <span className="absolute right-0 top-2 text-neutral-500 cursor-pointer hover:text-brand-emerald transition-colors">
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
                 </svg>
@@ -108,25 +107,25 @@ const Login = () => {
           </div>
 
           {/* Opciones de Remember y Forgot */}
-          <div className="flex items-center justify-between text-slate-400">
+          <div className="flex items-center justify-between text-neutral-400 text-base">
             <label className="flex items-center space-x-3 cursor-pointer">
               <input
                 type="checkbox"
-                className="w-5 h-5 border-gray-300 rounded focus:ring-blue-500 transition-all"
+                className="w-5 h-5 border-neutral-800 bg-neutral-950 rounded focus:ring-brand-emerald transition-all accent-brand-emerald cursor-pointer"
               />
-              <span className="text-lg">remember me?</span>
+              <span>Recordarme</span>
             </label>
-            <a href="#" className="text-blue-500 hover:text-blue-600 transition-colors text-lg">
-              forgot password?
+            <a href="#" className="text-brand-emerald hover:text-emerald-400 transition-colors">
+              ¿Olvidaste tu contraseña?
             </a>
           </div>
 
           {/* Botón de Login */}
           <button
             type="submit"
-            className="w-3/5 py-4 btn-dna hover:bg-blue-700 text-white font-bold rounded-xl flex items-center justify-center space-x-3 transition-all shadow-lg shadow-blue-200 active:scale-95"
+            className="w-3/5 mx-auto py-4 btn-dna flex items-center justify-center space-x-3 transition-all shadow-md shadow-emerald-500/10 active:scale-95 cursor-pointer"
           >
-            <span className="text-xl">Login</span>
+            <span className="text-xl">Ingresar</span>
             <svg
               className="w-6 h-6"
               fill="none"

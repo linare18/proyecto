@@ -5,11 +5,11 @@ import { getFirestore, collection, setDoc, doc } from 'firebase/firestore';
 const db = getFirestore(app);
 
 const MOCK_PRODUCTS = [
-  { id: 1, title: "Bolso", description: "Bolso de cuero genuino con múltiples compartimentos. Ideal para uso diario, con correa ajustable y cierre de cremallera de alta resistencia.", price: "19.99", rate: 4.5, image: "01_item.jpg" },
-  { id: 2, title: "Morral", description: "Morral espacioso con diseño ergonómico y acolchado en la espalda. Perfecto para estudiantes y viajeros, con bolsillos laterales para botellas.", price: "24.99", rate: 4.8, image: "02_item.jpg" },
-  { id: 3, title: "Cartera", description: "Cartera compacta de cuero sintético con ranuras para tarjetas y billete. Diseño minimalista y elegante para el día a día.", price: "12.50", rate: 4.2, image: "03_item.jpg" },
-  { id: 4, title: "Maletín", description: "Maletín ejecutivo de piel premium con compartimento acolchado para laptop de hasta 15\". Includes combination lock for added security.", price: "45.00", rate: 4.9, image: "04_item.jpg" },
-  { id: 5, title: "Cartera", description: "Cartera de diseñador en cuero italiano de alta gama, con herrajes dorados y forro interior de seda. Edición limitada para coleccionistas.", price: "100.00", rate: 3.8, image: "05_item.jpg" },
+  { id: 1, title: "Orquídea Phalaenopsis Premium", description: "Elegante orquídea de interior con hermosas flores en tonos rosa y blanco. Requiere luz indirecta y riego moderado. Ideal para dar un toque sofisticado a cualquier espacio de tu hogar.", price: "120000", rate: 4.8, image: "01_item.jpg", category: "Flores de Interior" },
+  { id: 2, title: "Anturio Rojo Brillante", description: "Planta tropical de interior muy resistente, conocida por sus llamativas hojas/flores rojas brillantes con forma de corazón y espádice amarillo. Ayuda a purificar el aire.", price: "80000", rate: 4.5, image: "02_item.jpg", category: "Flores de Interior" },
+  { id: 3, title: "Espatifilo Cuna de Moisés", description: "Hermosa planta de interior de hojas verde oscuro brillante y elegantes flores blancas en forma de vela. Destaca por su alta capacidad de purificación de aire y bajo mantenimiento.", price: "62000", rate: 4.7, image: "03_item.jpg", category: "Flores de Interior" },
+  { id: 4, title: "Violeta Africana Aterciopelada", description: "Planta compacta ideal para mesas y estanterías, con hojas carnosas aterciopeladas y ramilletes continuos de flores de un violeta vibrante. Muy fácil de cuidar.", price: "48000", rate: 4.3, image: "04_item.jpg", category: "Flores de Interior" },
+  { id: 5, title: "Bromelia Guzmania Exótica", description: "Exótica planta tropical con una bráctea central en forma de estrella de color naranja brillante. Aporta un toque selvático, colorido y de muy larga duración a tu hogar.", price: "88000", rate: 4.4, image: "05_item.jpg", category: "Flores de Interior" },
 ];
 
 async function seedProducts() {

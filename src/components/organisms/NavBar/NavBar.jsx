@@ -33,16 +33,16 @@ export default function NavBar() {
   */
 
   return (
-    <nav className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+    <nav className="sticky top-0 z-50 bg-neutral-950/80 backdrop-blur-md border-b border-neutral-800 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link 
             to="/" 
-            className="flex items-center space-x-2 text-2xl font-bold hover:opacity-80 transition-opacity"
+            className="flex items-center space-x-2 text-2xl font-serif font-extrabold hover:opacity-90 transition-opacity"
           >
-            <span className="bg-gradient-to-r from-purple-500 via-purple-600 to-pink-500 bg-clip-text text-transparent">
-              MyStore
+            <span className="bg-gradient-to-r from-emerald-400 via-emerald-500 to-teal-500 bg-clip-text text-transparent tracking-wide">
+              FloraStore
             </span>
           </Link>
 
@@ -53,11 +53,11 @@ export default function NavBar() {
                 to="/gallery"
                 className={`text-base font-medium transition-all duration-300 pb-2 border-b-2 ${
                   isActive('/gallery')
-                    ? 'text-blue-600 border-blue-600'
-                    : 'text-gray-600 border-transparent hover:text-gray-900 hover:border-gray-300'
+                    ? 'text-brand-emerald border-brand-emerald'
+                    : 'text-neutral-400 border-transparent hover:text-neutral-200 hover:border-neutral-600'
                 }`}
               >
-                Gallery
+                Galería
               </Link>
             </li>
             <li>
@@ -65,11 +65,11 @@ export default function NavBar() {
                 to="/cart"
                 className={`text-base font-medium transition-all duration-300 pb-2 border-b-2 ${
                   isActive('/cart')
-                    ? 'text-blue-600 border-blue-600'
-                    : 'text-gray-600 border-transparent hover:text-gray-900 hover:border-gray-300'
+                    ? 'text-brand-emerald border-brand-emerald'
+                    : 'text-neutral-400 border-transparent hover:text-neutral-200 hover:border-neutral-600'
                 }`}
               >
-                Cart ({totalItems})
+                Carrito ({totalItems})
               </Link>
             </li>
             {loggedInUser ? (
@@ -78,11 +78,11 @@ export default function NavBar() {
                   to="/profile"
                   className={`text-base font-medium transition-all duration-300 pb-2 border-b-2 ${
                     isActive('/profile')
-                      ? 'text-blue-600 border-blue-600'
-                      : 'text-gray-600 border-transparent hover:text-gray-900 hover:border-gray-300'
+                      ? 'text-brand-emerald border-brand-emerald'
+                      : 'text-neutral-400 border-transparent hover:text-neutral-200 hover:border-neutral-600'
                   }`}
                 >
-                  Profile
+                  Perfil
                 </Link>
               </li>
             ) : (
@@ -92,11 +92,11 @@ export default function NavBar() {
                     to="/login"
                     className={`text-base font-medium transition-all duration-300 pb-2 border-b-2 ${
                       isActive('/login')
-                        ? 'text-blue-600 border-blue-600'
-                        : 'text-gray-600 border-transparent hover:text-gray-900 hover:border-gray-300'
+                        ? 'text-brand-emerald border-brand-emerald'
+                        : 'text-neutral-400 border-transparent hover:text-neutral-200 hover:border-neutral-600'
                     }`}
                   >
-                    Login
+                    Ingresar
                   </Link>
                 </li>
                 <li>
@@ -104,19 +104,19 @@ export default function NavBar() {
                     to="/register"
                     className={`text-base font-medium transition-all duration-300 pb-2 border-b-2 ${
                       isActive('/register')
-                        ? 'text-blue-600 border-blue-600'
-                        : 'text-gray-600 border-transparent hover:text-gray-900 hover:border-gray-300'
+                        ? 'text-brand-emerald border-brand-emerald'
+                        : 'text-neutral-400 border-transparent hover:text-neutral-200 hover:border-neutral-600'
                     }`}
                   >
-                    Register
+                    Registrarse
                   </Link>
                 </li>
               </>
             )}
           </ul>
 
-          {/* Mobile Menu Button (opcional para futuro) */}
-          <button className="md:hidden p-2 rounded-md text-gray-600 hover:bg-gray-50">
+          {/* Mobile Menu Button */}
+          <button className="md:hidden p-2 rounded-md text-neutral-400 hover:bg-neutral-800 hover:text-neutral-200 transition-colors">
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
@@ -126,3 +126,4 @@ export default function NavBar() {
     </nav>
   );
 }
+

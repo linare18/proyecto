@@ -1,28 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap');
 @import "tailwindcss";
 
 @theme {
-  /* Definición de colores del ADN */
-  --color-brand-blue: #4D61FF;
-  --color-brand-dark: #32325d;
-  --color-brand-muted: #8898aa;
-  --color-brand-border: #dee2e6;
+  /* Definición de fuentes */
+  --font-sans: 'Outfit', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+
+  /* Definición de colores oscuros botánicos */
+  --color-brand-bg: #0b0f19;
+  --color-brand-card: #131c2e;
+  --color-brand-border: #1e293b;
+  --color-brand-text: #f8fafc;
+  --color-brand-muted: #94a3b8;
   
-  /* Ajustes de radio y sombras para el estilo moderno de la imagen */
-  --radius-dna: 0.5rem;
-  --shadow-dna: 0 4px 11px rgba(77, 97, 255, 0.35);
+  --color-brand-emerald: #10b981;
+  --color-brand-rose: #f43f5e;
+  --color-brand-amber: #f59e0b;
+  
+  /* Ajustes de radio y sombras para el estilo moderno */
+  --radius-dna: 0.75rem;
+  --shadow-dna: 0 4px 20px rgba(16, 185, 129, 0.2);
 }
 
-/* 2. Componentes base con @variant o clases de capa */
+/* Componentes base adaptados a tema oscuro */
 @layer components {
   .input-dna {
-    @apply w-full border-b border-brand-border py-2 text-brand-dark 
+    @apply w-full border-b border-brand-border py-2 text-brand-text bg-transparent
            outline-none transition-all duration-200 
-           focus:border-brand-blue placeholder:text-brand-muted/50;
+           focus:border-brand-emerald placeholder:text-brand-muted/40;
   }
 
   .btn-dna {
-    @apply flex items-center justify-center gap-2 bg-brand-blue text-white 
-           px-8 py-3 rounded-dna font-semibold transition-all 
-           hover:brightness-110 hover:shadow-dna active:scale-95;
+    @apply flex items-center justify-center gap-2 bg-gradient-to-r from-brand-emerald to-teal-600 text-white 
+           px-8 py-3 rounded-dna font-semibold transition-all duration-300
+           hover:brightness-110 hover:shadow-dna active:scale-95 cursor-pointer;
   }
-}
+}

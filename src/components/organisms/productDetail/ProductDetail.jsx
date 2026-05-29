@@ -29,7 +29,7 @@ export default function ProductDetail() {
 
     const renderStars = (rate) => {
         return Array.from({ length: 5 }, (_, i) => (
-            <span key={i} className={i < Math.round(rate) ? 'text-yellow-400' : 'text-gray-300'}>
+            <span key={i} className={i < Math.round(rate) ? 'text-amber-400' : 'text-neutral-700'}>
                 ★
             </span>
         ));
@@ -37,19 +37,20 @@ export default function ProductDetail() {
 
     if (loading) {
         return (
-            <div className="flex justify-center items-center h-64">
-                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-500"></div>
+            <div className="flex flex-col justify-center items-center h-96 space-y-4">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-emerald"></div>
+                <p className="text-sm text-brand-muted">Cargando detalles...</p>
             </div>
         );
     }
 
     if (!product) {
         return (
-            <div className="flex flex-col items-center justify-center h-64 space-y-4">
-                <p className="text-xl text-gray-600">Producto no encontrado.</p>
+            <div className="flex flex-col items-center justify-center h-96 space-y-4">
+                <p className="text-xl text-neutral-400">Producto no encontrado.</p>
                 <button
                     onClick={() => navigate('/gallery')}
-                    className="px-6 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-medium rounded-lg hover:opacity-90 transition-opacity"
+                    className="px-6 py-3 bg-gradient-to-r from-brand-emerald to-teal-600 text-neutral-950 font-bold rounded-xl hover:opacity-90 transition-opacity cursor-pointer"
                 >
                     Volver a la galería
                 </button>
@@ -58,13 +59,18 @@ export default function ProductDetail() {
     }
 
     const resolvedImage = imageMap[product.image] ?? product.image;
+    const formattedPrice = new Intl.NumberFormat('es-CO', {
+        style: 'currency',
+        currency: 'COP',
+        minimumFractionDigits: 0
+    }).format(product.price);
 
     return (
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-            {/* Back button */}
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            {/* Botón de retorno */}
             <button
                 onClick={() => navigate('/gallery')}
-                className="flex items-center gap-2 text-gray-500 hover:text-purple-600 transition-colors mb-6 group"
+                className="flex items-center gap-2 text-neutral-400 hover:text-brand-emerald transition-colors mb-6 group cursor-pointer"
             >
                 <svg className="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -72,72 +78,75 @@ export default function ProductDetail() {
                 Volver a la galería
             </button>
 
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div className="bg-neutral-900/60 border border-neutral-800 rounded-3xl shadow-xl overflow-hidden backdrop-blur-sm">
                 <div className="md:flex">
-                    {/* Image */}
-                    <div className="md:w-1/2 relative">
+                    {/* Imagen */}
+                    <div className="md:w-1/2 relative bg-neutral-950 flex items-center justify-center">
                         <img
                             src={resolvedImage}
                             alt={product.title}
-                            className="w-full h-80 md:h-full object-cover"
+                            className="w-full h-96 md:h-full object-cover max-h-[550px]"
                         />
-                        <div className="absolute top-4 left-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs font-bold px-3 py-1 rounded-full">
-                            NUEVO
+                        <div className="absolute top-4 left-4 bg-gradient-to-r from-brand-emerald to-teal-500 text-neutral-950 text-xs font-extrabold px-3 py-1.5 rounded-full shadow-md">
+                            PREMIUM
                         </div>
                     </div>
 
-                    {/* Info */}
-                    <div className="md:w-1/2 p-8 flex flex-col justify-between">
+                    {/* Información */}
+                    <div className="md:w-1/2 p-8 md:p-12 flex flex-col justify-between">
                         <div>
-                            <h1 className="text-3xl font-bold text-gray-900 mb-2">{product.title}</h1>
+                            <span className="text-xs font-bold text-brand-emerald tracking-wider uppercase bg-emerald-950/40 px-3 py-1 rounded-full border border-emerald-900/30">
+                                {product.category}
+                            </span>
+                            <h1 className="text-3xl md:text-4xl font-serif font-bold text-neutral-50 mt-4 mb-3">{product.title}</h1>
 
-                            {/* Rating */}
-                            <div className="flex items-center gap-2 mb-4">
-                                <div className="text-xl">{renderStars(product.rate)}</div>
-                                <span className="text-sm text-gray-500">({product.rate} / 5)</span>
+                            {/* Calificación */}
+                            <div className="flex items-center gap-2 mb-6">
+                                <div className="text-xl flex">{renderStars(product.rate)}</div>
+                                <span className="text-sm text-neutral-400 font-medium">({product.rate} / 5)</span>
                             </div>
 
-                            {/* Price */}
-                            <p className="text-4xl font-extrabold bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent mb-6">
-                                ${product.price}
+                            {/* Precio */}
+                            <p className="text-4xl font-extrabold text-neutral-50 mb-6 font-sans">
+                                {formattedPrice}
                             </p>
 
-                            {/* Description */}
-                            <p className="text-gray-600 leading-relaxed mb-8">
+                            {/* Descripción */}
+                            <p className="text-neutral-300 leading-relaxed font-light mb-8">
                                 {product.description}
                             </p>
                         </div>
 
-                        <div className="space-y-4">
-                            {/* Quantity selector */}
+                        <div className="space-y-6">
+                            {/* Selector de cantidad */}
                             <div className="flex items-center gap-4">
-                                <span className="text-sm font-medium text-gray-700">Cantidad:</span>
-                                <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden">
+                                <span className="text-sm font-medium text-neutral-300">Cantidad:</span>
+                                <div className="flex items-center border border-neutral-800 bg-neutral-950 rounded-xl overflow-hidden">
                                     <button
                                         onClick={() => setQuantity(q => Math.max(1, q - 1))}
-                                        className="w-10 h-10 flex items-center justify-center text-gray-600 hover:bg-gray-100 transition-colors text-lg font-bold"
+                                        className="w-10 h-10 flex items-center justify-center text-neutral-400 hover:bg-neutral-900 hover:text-neutral-200 transition-colors text-lg font-bold cursor-pointer"
                                     >
                                         −
                                     </button>
-                                    <span className="w-12 text-center font-semibold text-gray-900">
+                                    <span className="w-12 text-center font-semibold text-neutral-100">
                                         {quantity}
                                     </span>
                                     <button
                                         onClick={() => setQuantity(q => q + 1)}
-                                        className="w-10 h-10 flex items-center justify-center text-gray-600 hover:bg-gray-100 transition-colors text-lg font-bold"
+                                        className="w-10 h-10 flex items-center justify-center text-neutral-400 hover:bg-neutral-900 hover:text-neutral-200 transition-colors text-lg font-bold cursor-pointer"
                                     >
                                         +
                                     </button>
                                 </div>
                             </div>
 
-                            {/* Add to cart button */}
+                            {/* Botón de añadir al carrito */}
                             <button
                                 onClick={handleAddToCart}
-                                className={`w-full py-3 rounded-xl font-semibold text-white text-lg transition-all duration-300 ${
+                                className={`w-full py-4 rounded-xl font-bold text-lg transition-all duration-300 cursor-pointer ${
                                     added
-                                        ? 'bg-green-500 scale-95'
-                                        : 'bg-gradient-to-r from-purple-500 via-purple-600 to-pink-500 hover:opacity-90 hover:shadow-lg hover:shadow-purple-200 active:scale-95'
+                                        ? 'bg-emerald-500 text-neutral-950 scale-[0.98]'
+                                        : 'bg-gradient-to-r from-brand-emerald via-emerald-600 to-teal-500 text-neutral-950 hover:brightness-110 hover:shadow-lg hover:shadow-emerald-500/10 active:scale-95'
                                 }`}
                             >
                                 {added ? '✓ Agregado al carrito' : 'Agregar al carrito'}
@@ -149,3 +158,4 @@ export default function ProductDetail() {
         </div>
     );
 }
+
