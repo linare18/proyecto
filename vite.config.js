@@ -7,3 +7,4 @@ export default defineConfig({
   base: '/proyecto/',
   plugins: [react(), tailwindcss()],
 })
+// trigger
